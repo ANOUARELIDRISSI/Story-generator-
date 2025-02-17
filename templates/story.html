@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            width: 100%;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        .story-part {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px; /* Ensures content doesn't stretch too wide */
+            transition: all 0.3s ease;
+        }
+
+        .story-part h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            word-wrap: break-word;
+            text-align: left;
+        }
+
+        .story-part p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            word-wrap: break-word;
+        }
+
+        /* Add a little space between story parts */
+        .story-part:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2.2em;
+                margin-bottom: 20px;
+            }
+
+            .story-part h2 {
+                font-size: 1.6em;
+            }
+
+            .story-part p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .story-part h2 {
+                font-size: 1.4em;
+            }
+
+            .story-part p {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            .story-part h2 {
+                font-size: 1.3em;
+            }
+
+            .story-part p {
+                font-size: 0.95em;
+            }
+
+            .story-part {
+                padding: 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    {% for part in story_parts %}
+    <div class="story-part">
+        <h2>Part {{ loop.index }}</h2>
+        <p>{{ part.text }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
